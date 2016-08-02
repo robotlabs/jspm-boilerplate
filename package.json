@@ -1,0 +1,27 @@
+{
+  "name": "npm-scripts",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "info": "echo 'npm as a build tool'",
+    "clean:dist": "rm -rf dist",
+    "clean:tmp": "rm -rf tmp",
+    "clean": "npm run clean:dist && npm run clean:tmp",
+    "copy:make-dist": "mkdir dist/",
+    "copy:dist": "src/app.js > dist/*.js",
+    "copy": "npm run copy:dist",
+    "html": "src/html/index.html > dist/*",
+    "tt": "npm run copy:make-dist && npm run html",
+    "browsersync": "browser-sync start --server --files 'src/*'"
+  },
+  "author": "",
+  "license": "ISC",
+  "jspm": {
+    "devDependencies": {
+      "babel": "npm:babel-core@^5.8.24",
+      "babel-runtime": "npm:babel-runtime@^5.8.24",
+      "core-js": "npm:core-js@^1.1.4"
+    }
+  }
+}
