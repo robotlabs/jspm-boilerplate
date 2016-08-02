@@ -33,8 +33,8 @@ build2:
 production:
 	$(MAKE) clean
 	cp ./src/html/index.html ./dist/index.html
-	cp ./src/js/script-production.js ./dist/js/script.js
-	jspm bundle-sfx src/js/app dist/js/bundle.js --minify
+	cp ./src/js/scripts/script-production.js ./dist/js/script.js
+	jspm bundle-sfx src/js/app/app dist/js/bundle.js --minify
 
 production-x:
 	$(MAKE) clean
