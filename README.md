@@ -17,4 +17,6 @@ run
 `make prod-watch` to run a server and watch and re-bundle for production (all minified)
 
 **TODO WIP***
-`make devbundle-watch` to run a server with bundle, speed up the page start 
+`make devbundle-watch` to run a server with bundle, speed up the page start
+
+IMPROVE. all scripts for dev / prod need to have a var in makefile
