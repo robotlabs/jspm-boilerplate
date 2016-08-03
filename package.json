@@ -6,28 +6,21 @@
   "scripts": {
     "dev-serve": "browser-sync start --server --startPath './dist/' --files 'dist/css/*.css, dist/js/*.js'",
     "dev-reload": "browser-sync reload",
-    
     "dev-watch": "npm run dev-watch-js & npm run dev-watch-css & npm run dev-serve",
     "devbundle-watch": "npm run devbundle-watch-js & npm run dev-watch-css & npm run dev-serve",
     "dev-watch-js": "nodemon -e js -w src/js -x 'npm run dev-reload'",
     "devbundle-watch-js": "nodemon -e js -w src/js -x 'make build-dev-js'",
-
     "prod-serve": "browser-sync start --server --startPath './dist/' --files 'dist/css/*.css, dist/js/*.js'",
     "prod-watch": "npm run prod-watch-js & npm run prod-watch-css & npm run prod-serve",
     "prod-watch-js": "nodemon -e js -w src/js -x 'make build-js'",
-
     "dev-watch-css": "nodemon -e scss -w src/css -x 'make dev-css'",
     "prod-watch-css": "nodemon -e scss -w src/css -x 'make prod-css'",
-
     "dev-css": "npm run dev-css-pre && npm run dev-css-post",
     "prod-css": "npm run prod-css-pre && npm run prod-css-post && npm run css-mini",
-
     "prod-css-pre": "node-sass --include-path scss src/css/main.scss dist/css/styles.css",
     "prod-css-post": "postcss --use autoprefixer dist/css/styles.css -d dist/css/",
-
     "dev-css-pre": "node-sass --include-path scss src/css/main.scss dist/css/styles.min.css",
     "dev-css-post": "postcss --use autoprefixer dist/css/styles.min.css -d dist/css/",
-
     "css-mini": "postcss --use cssnano < dist/css/styles.css > dist/css/styles.min.css"
   },
   "author": "",
@@ -42,6 +35,7 @@
   "devDependencies": {
     "autoprefixer": "^6.4.0",
     "browser-sync": "^2.14.0",
+    "cssnano": "^3.7.3",
     "node-sass": "^3.8.0",
     "postcss": "^5.1.1",
     "postcss-cli": "^2.5.2"
