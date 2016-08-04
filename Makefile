@@ -1,39 +1,24 @@
 default: dev-watch
+scriptBaseURL := ./src/js/scripts/script-
+scriptDestURL := ./dist/js/script.js
 
-dev-build:
+build:
 	$(MAKE) clean
 	$(MAKE) html
-	$(MAKE) dev-css
-	cp ./src/js/scripts/script-dev.js ./dist/js/script.js
+	# define which script to copy on head. script-dev OR script-prod, depending from 'm'
+	cp $(scriptBaseURL)$(m).js $(scriptDestURL)
+	# call dev-css / prod-css
+	$(MAKE) build-css
 
-devbundle-build:
-	$(MAKE) clean
-	$(MAKE) html
-	$(MAKE) dev-css
-	$(MAKE) build-dev-js
-	cp ./src/js/scripts/script-dev.js ./dist/js/script.js
-
-prod-build:
-	$(MAKE) clean
-	$(MAKE) html
-	$(MAKE) prod-css
+ifeq ($(m),prod)
 	$(MAKE) build-js
-	cp ./src/js/scripts/script-prod.js ./dist/js/script.js
+endif
 
-dev-watch:
-	$(MAKE) dev-build
-	npm run dev-watch
-
-devbundle-watch:
-	$(MAKE) devbundle-build
-	npm run devbundle-watch
-
-prod-watch:
-	$(MAKE) prod-build
-	npm run prod-watch
-
-build-dev-js:
-	jspm bundle src/js/app/app dist/js/bundle.js
+watch:
+	$(MAKE) build
+	npm run $(m)-watch-js &
+	npm run watch-css &
+	npm run serve
 
 build-js:
 	jspm bundle-sfx src/js/app/app dist/js/bundle.js --minify
@@ -41,12 +26,13 @@ build-js:
 html:
 	cp ./src/html/index.html ./dist/index.html
 
-dev-css:
-	npm run dev-css
-
-prod-css:
-	npm run prod-css
+build-css:
+	npm run $(m)-css-pre
+	npm run $(m)-css-post
+ifeq ($(m),prod)
+	npm run css-mini
 	- rm -r dist/css/styles.css
+endif
 
 clean:
 	- rm -r dist
