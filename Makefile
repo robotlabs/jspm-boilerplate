@@ -2,9 +2,13 @@ default: dev-watch
 scriptBaseURL := ./src/js/scripts/script-
 scriptDestURL := ./dist/js/script.js
 
+vendors:
+
+
 build:
 	$(MAKE) clean
 	$(MAKE) html
+	npm run vendors
 	# define which script to copy on head. script-dev OR script-prod, depending from 'm'
 	cp $(scriptBaseURL)$(m).js $(scriptDestURL)
 	# call dev-css / prod-css
@@ -12,6 +16,8 @@ build:
 
 ifeq ($(m),prod)
 	$(MAKE) build-js
+	npm run uglify
+	- rm -r dist/js/vendor.js
 endif
 
 watch:
@@ -21,7 +27,7 @@ watch:
 	npm run serve
 
 build-js:
-	jspm bundle-sfx src/js/app/app dist/js/bundle.js --minify
+	jspm bundle-sfx src/js/app/app dist/js/bundle.min.js --minify
 
 html:
 	cp ./src/html/index.html ./dist/index.html
