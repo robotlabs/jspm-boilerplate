@@ -55,5 +55,4 @@ endif
 
 clean:
 	- rm -r dist
-	mkdir dist
-	mkdir dist/js
+	mkdir -p dist/js
