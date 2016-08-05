@@ -3,24 +3,24 @@ my boilerplate, using jspm
 
 install jspm if you haven't, globally.
 
-run
+## install
 
 `make setup`
 
-to compile just build
+
 
 `make build m=dev`
 `make build m=prod`
 
-to compile for watch
+## build
 
 `make watch m=dev`
 `make watch m=prod`
 
-to compile for release
+# build for release
 
 `make build m=prod q=release`
 
-to compile for watch release
+## watch
 
 `make watch m=prod q=release`
