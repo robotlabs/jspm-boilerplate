@@ -1,9 +1,10 @@
-default: dev-watch
+default: watch m=dev
 scriptBaseURL := ./src/js/scripts/script-
 scriptDestURL := ./dist/js/script.js
 
-vendors:
-
+setup:
+	jspm init
+	npm install
 
 build:
 	$(MAKE) clean
