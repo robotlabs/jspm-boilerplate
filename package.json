@@ -15,7 +15,8 @@
     "dev-css-post": "postcss --use autoprefixer dist/css/styles.min.css -d dist/css/",
     "css-mini": "postcss --use cssnano < dist/css/styles.css > dist/css/styles.min.css",
     "vendors": "concat-cli -f src/js/libs/vendors-window/*.js -o dist/js/vendor.js",
-    "uglify": "uglifyjs dist/js/vendor.js --o dist/js/vendor.min.js"
+    "vendors-min": "concat-cli -f src/js/libs/vendors-window/*.js -o dist/js/vendor.min.js",
+    "uglify-vendor": "uglifyjs dist/js/vendor.js --o dist/js/vendor.min.js"
 
   },
   "author": "",

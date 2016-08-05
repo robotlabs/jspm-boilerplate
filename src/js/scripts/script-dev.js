@@ -6,7 +6,7 @@ if (isIE()) {
     document.getElementsByTagName('head')[0].appendChild(scriptIE);
 }
 var scriptVendor = document.createElement('script')
-scriptVendor.src = './js/vendor.js';
+scriptVendor.src = './js/vendor.min.js';
 scriptVendor.type = "text/javascript";
 document.getElementsByTagName('head')[0].appendChild(scriptVendor);
 

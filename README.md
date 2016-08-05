@@ -9,14 +9,16 @@ to install all dependencies.
 if you need to change the folder structure run
 `jspm init -p`
 
-run
-`make dev-build` to build for dev
-`make prod-build` to build for production
+to compile just build
+`make build m=dev`
+`make build m=prod`
 
-`make dev-watch` to run a server and watch for dev files
-`make prod-watch` to run a server and watch and re-bundle for production (all minified)
+to compile for watch
+`make watch m=dev`
+`make watch m=prod`
 
-**TODO WIP***
-`make devbundle-watch` to run a server with bundle, speed up the page start
+to compile for release
+`make build m=prod q=release`
 
-IMPROVE. all scripts for dev / prod need to have a var in makefile
+to compile for watch release
+`make watch m=prod q=release`
