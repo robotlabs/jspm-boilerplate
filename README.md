@@ -8,10 +8,12 @@ install jspm if you haven't, globally.
 
 ### build
 `make build m=dev`
+
 `make build m=prod`
 
 ###watch
 `make watch m=dev`
+
 `make watch m=prod`
 
 ### build for release
