@@ -1,3 +1,3 @@
 export function bootstrap() {
-    console.log(':::---::yesciao-');
+    console.log(':::YES:::-');
 }

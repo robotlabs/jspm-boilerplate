@@ -2,7 +2,7 @@ if (isIE()) {
     var scriptIE = document.createElement('script')
     scriptIE.src = './../src/js/scripts/ie/es6-promise.js';
     scriptIE.type = "text/javascript";
-    script2.async = false;
+    scriptIE.async = false;
     document.getElementsByTagName('head')[0].appendChild(scriptIE);
 }
 var scriptVendor = document.createElement('script')
@@ -23,14 +23,14 @@ scriptVendor.onload = function() {
             // script2.async = false;
             document.getElementsByTagName('head')[0].appendChild(script2);
             script2.onload = function() {
-                console.log('lets start :', window.System);
-                System.import('./../src/js/app/app.js');
+                //**System import app, and THEN, when ready, call start. if you let app call start when onload sourcemaps won't work
+                System.import('./../src/js/app/app.js').then(function(app) {
+                    app.start();
+                });
+
             };
     };
 }
-
-
-
 
 //** utils to check if to add promise polyfill ( without IE and jspm doesn't get along too much)
 function isIE(userAgent) {

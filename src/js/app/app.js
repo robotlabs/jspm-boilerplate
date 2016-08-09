@@ -1,15 +1,5 @@
 import {bootstrap} from './mod-1.js';
-//import TweenMax from gsap;
-//import TweenMax from "gsap";
-
-window.addEventListener ?
-window.addEventListener("load",start(),false) :
-window.attachEvent && window.attachEvent("onload",start());
-// start();
-// window.onload = function(){
-//     console.log('fica');
-// }();
-function start() {
+export function start() {
     console.log(':: start--');
     var div = document.createElement('div');
     div.style.width = '100px';
@@ -22,6 +12,4 @@ function start() {
 
     TweenMax.to(div, 1, {left: 500, delay: .5});
     bootstrap();
-
-    console.log(window.PIXI);
 }
