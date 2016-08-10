@@ -1,7 +1,8 @@
 # jspm-boilerplate
 my boilerplate, using jspm
 
-install jspm if you haven't, globally. ( npm install -g jspm@beta if you fancy go beta)
+install jspm if you haven't, globally.
+!! I used USE npm install -g jspm@beta 
 
 ### install
 `make setup`

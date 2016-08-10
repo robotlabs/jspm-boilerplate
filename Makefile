@@ -1,6 +1,7 @@
 default: watch m=dev
 scriptBaseURL := ./src/js/scripts/script-
 scriptDestURL := ./dist/js/script.js
+m = dev
 
 setup:
 	jspm init
@@ -9,6 +10,7 @@ setup:
 build:
 	$(MAKE) clean
 	$(MAKE) html
+	$(MAKE) system
 ifeq ($(q),release)
 	npm run vendors
 else
@@ -34,13 +36,17 @@ watch:
 
 build-js:
 ifeq ($(q),release)
-	jspm bundle-sfx src/js/app/app dist/js/bundle.min.js --minify --skip-source-maps
+	jspm bundle src/js/app/app.js dist/js/bundle.min.js --minify --skip-source-maps
 else
-	jspm bundle-sfx src/js/app/app dist/js/bundle.min.js
+	jspm bundle src/js/app/app.js dist/js/bundle.min.js --inject
 endif
 
 html:
 	cp ./src/html/index.html ./dist/index.html
+
+system:
+	cp ./config.js ./dist/js/config.js
+	cp ./jspm_packages/system.js ./dist/js/system.js
 
 build-css:
 ifeq ($(q),release)

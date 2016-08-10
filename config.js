@@ -1,4 +1,7 @@
 System.config({
+    bundles: {
+    'dist/js/bundle.min.js': ['app']
+    },
   baseURL: "./../",
   defaultJSExtensions: true,
   transpiler: "babel",
