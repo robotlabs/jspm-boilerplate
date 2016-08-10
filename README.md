@@ -2,7 +2,7 @@
 my boilerplate, using jspm
 
 install jspm if you haven't, globally.
-!! I used USE npm install -g jspm@beta 
+!! I used USE npm install -g jspm ( Don't install beta 0.17 because it will break the make dev )
 
 ### install
 `make setup`
