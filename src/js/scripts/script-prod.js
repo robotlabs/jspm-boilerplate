@@ -19,9 +19,11 @@ scriptVendor.onload = function() {
     scriptBundle.type = "text/javascript";
     document.getElementsByTagName('head')[0].appendChild(scriptBundle);
     scriptBundle.onload = function(app) {
-        SystemJS.import('./../src/js/app/app.js').then(function(app) {
-            app.start();
-        });
+        // SystemJS.import('./../src/js/app/app.js').then(function(app) {
+        //     app.start();
+        // });
+        window.bundleStart();
+        // start();
     }
 }
 

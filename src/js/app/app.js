@@ -1,6 +1,6 @@
 import {bootstrap} from './mod-1.js';
 export function start() {
-    console.log(':: -==start:');
+    console.log(':: -start:');
     var div = document.createElement('div');
     div.style.width = '100px';
     div.style.height = '100px';
@@ -12,4 +12,7 @@ export function start() {
 
     TweenMax.to(div, 1, {left: 500, delay: .5});
     bootstrap();
+}
+window.bundleStart = function(){
+    start();
 }
