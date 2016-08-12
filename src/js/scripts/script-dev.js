@@ -12,10 +12,22 @@ document.getElementsByTagName('head')[0].appendChild(scriptVendor);
 
 var script;
 scriptVendor.onload = function() {
-    console.log(':: DEV');
-    System.import('./../src/js/app/app.js').then(function(app) {
-        app.start();
-    });
+    var scriptSystem = document.createElement('script')
+    scriptSystem.src = './../jspm_packages/system.js';
+    scriptSystem.type = "text/javascript";
+    document.getElementsByTagName('head')[0].appendChild(scriptSystem);
+    scriptSystem.onload = function() {
+        var scriptConfig = document.createElement('script')
+        scriptConfig.src = './../config.js';
+        scriptConfig.type = "text/javascript";
+        document.getElementsByTagName('head')[0].appendChild(scriptConfig);
+        scriptConfig.onload = function() {
+            console.log(':: DEV');
+            System.import('./../src/js/app/app.js').then(function(app) {
+                app.start();
+            });
+        }
+    }
 }
 
 //** utils to check if to add promise polyfill ( without IE and jspm doesn't get along too much)

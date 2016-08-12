@@ -4,13 +4,13 @@ scriptDestURL := ./dist/js/script.js
 m = dev
 
 setup:
-	jspm init
+	jspm install
 	npm install
 
 build:
 	$(MAKE) clean
 	$(MAKE) html
-	$(MAKE) system
+	#$(MAKE) system
 ifeq ($(q),release)
 	npm run vendors
 else
@@ -36,9 +36,9 @@ watch:
 
 build-js:
 ifeq ($(q),release)
-	jspm bundle src/js/app/app.js dist/js/bundle.min.js --minify --skip-source-maps
+	jspm bundle-sfx src/js/app/app dist/js/bundle.min.js --minify --skip-source-maps
 else
-	jspm bundle src/js/app/app.js dist/js/bundle.min.js --inject
+	jspm bundle-sfx src/js/app/app dist/js/bundle.min.js --inject
 endif
 
 html:

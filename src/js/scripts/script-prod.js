@@ -10,6 +10,7 @@ scriptVendor.src = './js/vendor.min.js';
 scriptVendor.type = "text/javascript";
 document.getElementsByTagName('head')[0].appendChild(scriptVendor);
 
+
 var script;
 scriptVendor.onload = function() {
     console.log(':: PROD');
